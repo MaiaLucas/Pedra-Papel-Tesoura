@@ -1,5 +1,6 @@
-var userScore = 0;
-var compScore = 0;
+let userScore  = 0;
+let compScore  = 0;
+let score_table = document.getElementsByClassName("scoreTable");
 
 const userScore_span = document.getElementById("user-score");
 const compScore_span = document.getElementById("comp-score");
@@ -7,9 +8,10 @@ const compScore_span = document.getElementById("comp-score");
 const scoreBoard_div = document.querySelector(".score-board");
 const result_p       = document.querySelector(".result > p");
 
-const rock_div     = document.getElementById("pedra");
-const paper_div    = document.getElementById("papel");
-const scissors_div = document.getElementById("tesoura");
+const rock_div       = document.getElementById("pedra");
+const paper_div      = document.getElementById("papel");
+const scissors_div   = document.getElementById("tesoura");
+const restart_button = document.getElementById("restart");
 //--
 
 function getComputerChoice() {
@@ -28,6 +30,12 @@ function win(user, computer) {
     result_p.innerHTML = `${user}${smallUserWord} ganha de ${computer}${smallCompWord}. Você ganhou!`;
     userScore_div.classList.add('green-glow');
     setTimeout( () => userScore_div.classList.remove('green-glow'), 500);
+    if( userScore == 7 ) {
+        //console.log( "Jogador Ganhou a rodada!" )
+        alert(`Jogador ganhou! Placar: ${userScore_span.innerHTML} x ${compScore_span.innerHTML}`);
+        getScoreTable(userScore_span.innerHTML,compScore_span.innerHTML);
+        restart();
+    }
 }
 
 function lose(user, computer) {
@@ -38,6 +46,12 @@ function lose(user, computer) {
     result_p.innerHTML = `${user}${smallUserWord} perde para ${computer}${smallCompWord}. Você perdeu!`;
     userScore_div.classList.add('red-glow');
     setTimeout( () => userScore_div.classList.remove('red-glow'), 500);
+    if( compScore == 7 ) {
+        //console.log( "Jogador Ganhou a rodada!" )
+        alert(`Computador ganhou! Placar: ${userScore_span.innerHTML} x ${compScore_span.innerHTML}`);
+        getScoreTable(userScore_span.innerHTML,compScore_span.innerHTML);
+        restart();
+    }
 }
 
 function draw(user, computer) {
@@ -45,6 +59,17 @@ function draw(user, computer) {
     result_p.innerHTML = `${user}${smallUserWord} empata com ${computer}${smallCompWord}. Empatou!`;
     userScore_div.classList.add('gray-glow');
     setTimeout( () => userScore_div.classList.remove('gray-glow'), 500);
+}
+
+function restart () {
+    userScore_span.innerHTML = 0;
+    compScore_span.innerHTML = 0;
+}
+
+function getScoreTable (user, computer) {
+    let $score_table = $('.scoreTable');
+    $score_table.prepend( `<tr> <td>${user}</td><td>${computer}</td> </tr>` );
+    console.log(`${user}  ${computer}`);
 }
 
 function game(userChoice) {
@@ -73,9 +98,10 @@ function game(userChoice) {
 }
 
 function main() {
-    rock_div.addEventListener('click', () => game("pedra"));
-    paper_div.addEventListener('click', () => game("papel"));
-    scissors_div.addEventListener('click', () => game("tesoura"));
+    rock_div.addEventListener( 'click', () => game("pedra") );
+    paper_div.addEventListener( 'click', () => game("papel") );
+    scissors_div.addEventListener( 'click', () => game("tesoura") );
+    restart_button.addEventListener( 'click', () => restart() );
 }
 
 main();
