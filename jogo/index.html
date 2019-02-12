@@ -11,7 +11,7 @@
         <header>
             <h1>Pedra Papel Tesoura</h1>
         </header>
-
+        
         <div class="score-board">
             <div id="user-label" class="badge">User</div>
             <div id="comp-label" class="badge">Comp</div>
@@ -35,7 +35,19 @@
         </div>
 
         <p id="action-message">Faça sua jogada!</p>
+        <input type="button" value="Restart" id="restart">
+        <!--<button type="reset">Restart</button>-->
+
         <script src="js/app.js" charset="utf-8"></script>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>User</th><th>Computer</th>
+                </tr>
+            </thead>
+            <tbody class="scoreTable"></tbody>
+        </table>
         
     </body>
 </htm>
