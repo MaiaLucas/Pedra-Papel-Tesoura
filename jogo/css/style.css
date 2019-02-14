@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #24272E; 
+    background-color: #5f62ac; 
 }
 
 header {
@@ -23,7 +23,7 @@ header > h1 {
 
 table {
     position: relative;
-    width: 25%;
+    width: 45%;
     margin: 20px auto;
     margin-top: 100px;
     text-align: center;
@@ -31,11 +31,13 @@ table {
     font-size: 25px;
     border-collapse: collapse;
     color: #fff;
-    background: #394646;
+    background: #262c43;
+    box-shadow: 0 0 100px #262c43;
 }
 
 th, td {
     height: 50px;
+    margin: 50px;
     border: 1px solid white;
 }
 
@@ -43,26 +45,26 @@ input {
     position: relative;
     width: 100px;
     height: 50px;
-    left: 47%;
     margin: 20px auto;
     padding: 15px 20px;
     margin-top: 50px;
+    left: 45%;
     text-align: center;
     font-size: 15px;
     color: white;
     font-family: Asap, sans-serif;
     font-weight: bold;
-    background-color: #2F4F4F;
-    border: 1px solid #2F4F4F;
+    background-color: #253FB1;
+    border: 1px solid #253FB1;
     border-radius: 10px;
-    box-shadow: 0 0 10px #396060;
+    box-shadow: 0 0 50px #253FB1;
 }
 
 input:hover {
     cursor: pointer;
-    background: #80B3B3;
     color: #000;
-    box-shadow: 0 0 10px #8FBCBC;
+    background: #8fe3d4;
+    box-shadow: 0 0 50px #8fe3d4;
 }
 
 .score-board {
@@ -126,7 +128,7 @@ input:hover {
     cursor: pointer;
     background: white;
 }
-
+/*
 #action-message {
     text-align: center;
     color: white;
@@ -135,7 +137,7 @@ input:hover {
     font-size: 20px;
     margin-top: 20px;
 }
-
+*/
 .green-glow{
     border: 4px solid #4dcc7d;
     box-shadow: 0 0 10px #31b43a;
