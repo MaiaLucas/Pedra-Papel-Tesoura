@@ -127,7 +127,6 @@ function saveGame() {
     localStorage.setItem('comp-score', compScore_storage);
 }
 
-
 function main() {
     rock_div.addEventListener( 'click', () => game("pedra") );
     paper_div.addEventListener( 'click', () => game("papel") );
