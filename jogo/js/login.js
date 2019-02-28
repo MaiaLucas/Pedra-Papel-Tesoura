@@ -1,10 +1,9 @@
-const username_input = document.getElementById("username");
+const username_input = document.getElementById('username');
 const login_button   = document.getElementById('login'); 
 
 function enterUsername (username) {
     username = username_input.innerHTML;
-
-    localStorage.setItem('username', username_storage);
+    localStorage.setItem('username', username);
 }
 
 function main() {
