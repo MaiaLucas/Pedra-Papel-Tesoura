@@ -1,7 +1,11 @@
 let userScore  = 0;
 let compScore  = 0;
 let round      = 1;
-
+let information = {
+    'user': localStorage.getItem('user-score'),
+    'computer': localStorage.getItem('comp-score'),
+    'username': localStorage.getItem('username')
+}
 
 const score_table      = document.getElementsByClassName("scoreTable");
 
@@ -26,6 +30,7 @@ function getComputerChoice() {
 //-------
 const smallUserWord = "user".fontsize(3).sub();
 const smallCompWord = "comp".fontsize(3).sub();
+//-- Function when the user wins
 function win(user, computer) {
     const userScore_div = document.getElementById(user);
     userScore ++;
@@ -46,7 +51,7 @@ function win(user, computer) {
     }
 
 }
-
+//-- Function when the user lose
 function lose(user, computer) {
     const userScore_div = document.getElementById(user);
     compScore ++;
@@ -67,7 +72,7 @@ function lose(user, computer) {
     }
 
 }
-
+//-- Function draw
 function draw(user, computer) {
     const userScore_div = document.getElementById(user);
 
@@ -78,22 +83,24 @@ function draw(user, computer) {
 }
 //-------
 
+//-- Function what the user press the button restart, restart the scoreboard 
 function restartGame() {
     history.go(0);
 }
 
+//-- Function take the score value
 function getScoreTable (user, computer) {
     let $score_table = $('.scoreTable');
 
     document.onchange = saveGame();
-    user = localStorage.getItem(userScore_span);
-    compputer = localStorage.getItem(compScore_span);
-    console.log(user + " x " + computer);
+    user = information.user;
+    computer = information.computer;
 
     $score_table.append( `<tr> <td>${round}</td><td>${user}</td><td>${computer}</td> </tr>` );
     round++;
 }
 
+//-- Function where the game working
 function game(userChoice) {
     const computerChoice = getComputerChoice();
 
@@ -119,6 +126,7 @@ function game(userChoice) {
     }
 }
 
+//-- Save the game
 function saveGame() {
     let compScore_storage = compScore_span.innerHTML;
     let userScore_storage = userScore_span.innerHTML;
@@ -127,7 +135,9 @@ function saveGame() {
     localStorage.setItem('comp-score', compScore_storage);
 }
 
+//-- 
 function main() {
+
     rock_div.addEventListener( 'click', () => game("pedra") );
     paper_div.addEventListener( 'click', () => game("papel") );
     scissors_div.addEventListener( 'click', () => game("tesoura") );
